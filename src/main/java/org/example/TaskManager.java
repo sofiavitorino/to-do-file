@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TaskManager {
     private int nextId;
@@ -21,20 +22,40 @@ public class TaskManager {
         nextId++;
     }
 
-    public void editTask(){
-
+    public void editTask(int id, String newTitle) {
+        for (Task task : tasks) {
+            if (id == task.getId()) {
+                task.setTitle(newTitle);
+                System.out.println("Tarefa editada com sucesso!");
+                return;
+            }
+        }
+        System.out.println("Tarefa não encontrada.");
     }
 
-    public void deleteTask(){
-
+    public void deleteTask(int id){
+        for (Task task : tasks) {
+            if (id == task.getId()) {
+                tasks.remove(task);
+                System.out.println("Objeto removido com sucesso!");
+                return;
+            }
+        }
+        System.out.println("Tarefa não encontrada.");
     }
 
     public void setDone(){
 
     }
 
-    public void listTask(){
-
+    public void listTasks() {
+        if (tasks.isEmpty()) {
+            System.out.println("Nenhuma tarefa cadastrada.");
+            return;
+        }
+        for (Task task : tasks) {
+            System.out.printf("[%d] %s - %s%n", task.getId(), task.getTitle(), task.getStatus());
+        }
     }
 
 }

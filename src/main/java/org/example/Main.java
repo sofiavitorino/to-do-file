@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        TaskManager manager = new TaskManager();
         while (true) {
             System.out.println("------------ ToDo List ------------");
             System.out.println("Escolha a opção desejada: ");
@@ -19,15 +20,26 @@ public class Main {
             switch (option) {
                 case 1:
                     System.out.println("Digite o título");
+                    String title = scanner.nextLine();
+                    manager.addTask(title);
                 break;
                 case 2:
-                    System.out.println("tarefa x teste");
+                    manager.listTasks();
                     break;
                 case 3:
-                    System.out.println("Digite qual tarefa deseja editar:");
+                    manager.listTasks();
+                    System.out.println("Digite o ID da tarefa a editar: ");
+                    int editId = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Novo título: ");
+                    String newTitle = scanner.nextLine();
+                    manager.editTask(editId, newTitle);
                     break;
                 case 4:
+                    manager.listTasks();
                     System.out.println("Digite qual tarefa deseja deletar:");
+                    int delete = scanner.nextInt();
+                    manager.deleteTask(delete);
                     break;
                 case 5:
                     System.out.println("escolha a tarefa a ser marcada como concluida");
