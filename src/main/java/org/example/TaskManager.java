@@ -1,7 +1,6 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class TaskManager {
     private int nextId;
@@ -44,8 +43,15 @@ public class TaskManager {
         System.out.println("Tarefa não encontrada.");
     }
 
-    public void setDone(){
-
+    public void setDone(int id){
+        for (Task task : tasks) {
+            if (id == task.getId()) {
+                task.setStatus(Task.Status.DONE);
+                System.out.println("Tarefa marcada como feita!");
+                return;
+            }
+        }
+        System.out.println("Tarefa não encontrada.");
     }
 
     public void listTasks() {

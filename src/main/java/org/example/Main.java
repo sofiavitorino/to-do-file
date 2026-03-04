@@ -6,6 +6,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         TaskManager manager = new TaskManager();
+        FileManager fileManager = new FileManager();
+        fileManager.loadTasks(manager.getTasks());
         while (true) {
             System.out.println("------------ ToDo List ------------");
             System.out.println("Escolha a opção desejada: ");
@@ -15,6 +17,7 @@ public class Main {
             System.out.println("[4] Deletar tarefa");
             System.out.println("[5] Marcar como concluída");
             System.out.println("[0] Sair");
+            System.out.println();
             int option = scanner.nextInt();
             scanner.nextLine();
             switch (option) {
@@ -22,6 +25,7 @@ public class Main {
                     System.out.println("Digite o título");
                     String title = scanner.nextLine();
                     manager.addTask(title);
+                    fileManager.saveTasks(manager.getTasks());
                 break;
                 case 2:
                     manager.listTasks();
@@ -34,15 +38,21 @@ public class Main {
                     System.out.println("Novo título: ");
                     String newTitle = scanner.nextLine();
                     manager.editTask(editId, newTitle);
+                    fileManager.saveTasks(manager.getTasks());
                     break;
                 case 4:
                     manager.listTasks();
                     System.out.println("Digite qual tarefa deseja deletar:");
                     int delete = scanner.nextInt();
                     manager.deleteTask(delete);
+                    fileManager.saveTasks(manager.getTasks());
                     break;
                 case 5:
-                    System.out.println("escolha a tarefa a ser marcada como concluida");
+                    manager.listTasks();
+                    System.out.println("Digite qual tarefa deseja completar:");
+                    int complete = scanner.nextInt();
+                    manager.setDone(complete);
+                    fileManager.saveTasks(manager.getTasks());
                     break;
                 default:
                     System.exit(0);

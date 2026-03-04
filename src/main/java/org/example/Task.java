@@ -19,6 +19,12 @@ public class Task {
         this.status = Status.PENDING;
     }
 
+    public Task(String title, int id, Status status) {
+        this.title = title;
+        this.id = id;
+        this.status = status;
+    }
+
     public String getTitle() {
         return title;
     }
