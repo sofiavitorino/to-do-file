@@ -1,15 +1,28 @@
-# ToDo List
+# To-Do List
 
-Aplicação de linha de comando para gerenciar tarefas, desenvolvida em Java para praticar leitura e escrita de arquivos externos.
+A command-line task manager built in Java to practice external file I/O and persistent data handling.
 
-## Funcionalidades
+## About
 
-- Criar, visualizar, editar e deletar tarefas
-- Marcar tarefas como concluídas
-- Persistência de dados em arquivo `.txt` — as tarefas são salvas automaticamente e continuam disponíveis ao reabrir o app
+A Java CLI application for managing tasks with full CRUD operations and automatic file 
+persistence — tasks survive between sessions without a database.
 
-## Como rodar
+## Features
 
-1. Clone o repositório
-2. Abra o projeto no IntelliJ IDEA
-3. Execute a classe `Main.java`
+- Create, view, edit, and delete tasks
+- Mark tasks as completed
+- Data persistence via `.txt` file — tasks are saved automatically and remain available on next run
+
+## Getting Started
+
+1. Clone the repository
+2. Open the project in IntelliJ IDEA
+3. Run `Main.java`
+
+## Requirements
+
+Java 17+
+
+## Concepts Practiced
+
+File I/O, CRUD operations, command-line interface design, data persistence without a database.
